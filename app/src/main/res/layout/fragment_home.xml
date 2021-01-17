@@ -12,6 +12,7 @@
         android:layout_height="wrap_content">
 
         <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/primary"
@@ -232,7 +233,7 @@
             app:layout_constraintStart_toStartOf="@id/balanceCardView"
             app:layout_constraintTop_toBottomOf="@id/transferLimitAmountCardView" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/chevronButtonImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -254,6 +255,21 @@
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/favorite_transfer_row"
             tools:orientation="horizontal" />
+
+
+        <ProgressBar
+            android:id="@+id/pgb_home_loader"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ProgressBar>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.core.widget.NestedScrollView>
