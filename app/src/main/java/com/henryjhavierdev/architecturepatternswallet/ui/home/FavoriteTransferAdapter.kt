@@ -1,15 +1,11 @@
 package com.henryjhavierdev.architecturepatternswallet.ui.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.henryjhavierdev.architecturepatternswallet.R
 import com.henryjhavierdev.architecturepatternswallet.databinding.FavoriteTransferRowBinding
 import com.henryjhavierdev.architecturepatternswallet.helpers.loadImageViewFromUrl
 import com.henryjhavierdev.architecturepatternswallet.model.FavoriteTransfer
-import com.squareup.picasso.Picasso
 
 class FavoriteTransferAdapter : RecyclerView.Adapter<FavoriteTransferAdapter.FavoriteTransferViewHolder>() {
 
@@ -21,7 +17,6 @@ class FavoriteTransferAdapter : RecyclerView.Adapter<FavoriteTransferAdapter.Fav
         return FavoriteTransferViewHolder(binding)
 
     }
-
 
     override fun getItemCount(): Int = favoriteTransferItems.size
 
@@ -36,13 +31,11 @@ class FavoriteTransferAdapter : RecyclerView.Adapter<FavoriteTransferAdapter.Fav
     class FavoriteTransferViewHolder(private val binding: FavoriteTransferRowBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: FavoriteTransfer) {
+        fun bind(item: FavoriteTransfer) = with(binding) {
 
-            with(binding){
-                profilePhotoImageView.loadImageViewFromUrl(item.photoUrl)
-                nameTextView.text               = item.name
-                transferredAmountTextView.text  = item.amount.toString()
-            }
+            profilePhotoImageView.loadImageViewFromUrl(item.photoUrl)
+            nameTextView.text               = item.name
+            transferredAmountTextView.text  = item.amount.toString()
 
         }
     }
