@@ -23,12 +23,6 @@ class HomeFragment : Fragment() {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            binding.tvHome.text = it
-        })
-
-
         return binding.root
 
     }
