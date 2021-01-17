@@ -6,5 +6,5 @@ import com.squareup.picasso.Picasso
 class FuntionsExtension {
 }
 
-fun ImageView.loadImageViewFromUrl(url: String) = Picasso.get()
+fun ImageView.loadImageViewFromUrl(url: String?) = Picasso.get()
     .load(url).into(this)

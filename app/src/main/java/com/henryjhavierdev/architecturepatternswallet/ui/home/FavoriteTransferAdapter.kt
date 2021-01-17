@@ -6,20 +6,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.henryjhavierdev.architecturepatternswallet.R
+import com.henryjhavierdev.architecturepatternswallet.databinding.FavoriteTransferRowBinding
+import com.henryjhavierdev.architecturepatternswallet.helpers.loadImageViewFromUrl
 import com.henryjhavierdev.architecturepatternswallet.model.FavoriteTransfer
 import com.squareup.picasso.Picasso
 
 class FavoriteTransferAdapter : RecyclerView.Adapter<FavoriteTransferAdapter.FavoriteTransferViewHolder>() {
 
     private var favoriteTransferItems: List<FavoriteTransfer> = arrayListOf()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTransferViewHolder =
-        FavoriteTransferViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.favorite_transfer_row,
-                parent,
-                false
-            )
-        )
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTransferViewHolder {
+
+        val binding =  FavoriteTransferRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FavoriteTransferViewHolder(binding)
+
+    }
 
 
     override fun getItemCount(): Int = favoriteTransferItems.size
@@ -32,11 +33,17 @@ class FavoriteTransferAdapter : RecyclerView.Adapter<FavoriteTransferAdapter.Fav
         notifyDataSetChanged()
     }
 
-    class FavoriteTransferViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class FavoriteTransferViewHolder(private val binding: FavoriteTransferRowBinding)
+        : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: FavoriteTransfer) {
-            val photoImageView = view.findViewById<ImageView>(R.id.profilePhotoImageView)
-            Picasso.get().load(item.photoUrl).into(photoImageView)
+
+            with(binding){
+                profilePhotoImageView.loadImageViewFromUrl(item.photoUrl)
+                nameTextView.text               = item.name
+                transferredAmountTextView.text  = item.amount.toString()
+            }
+
         }
     }
 

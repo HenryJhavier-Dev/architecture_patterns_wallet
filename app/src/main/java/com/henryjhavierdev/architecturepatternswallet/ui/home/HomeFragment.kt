@@ -14,7 +14,6 @@ import com.henryjhavierdev.architecturepatternswallet.helpers.loadImageViewFromU
 import com.henryjhavierdev.architecturepatternswallet.model.FavoriteTransfer
 import com.henryjhavierdev.architecturepatternswallet.model.HomeContract
 import com.henryjhavierdev.architecturepatternswallet.presenter.HomePresenter
-import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment(), HomeContract.View {
 
@@ -28,7 +27,6 @@ class HomeFragment : Fragment(), HomeContract.View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
         homePresenter = HomePresenter(this)
-        homePresenter?.retrieveFavoriteTransfers()
 
 
         binding.apply {
@@ -44,8 +42,11 @@ class HomeFragment : Fragment(), HomeContract.View {
                 500
             )
 
+            //Load Data
             //Using an extension function
             profilePhotoImageView.loadImageViewFromUrl(Constant.urlImage)
+            homePresenter?.retrieveFavoriteTransfers()
+
 
         }
 
