@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ArchitecturePatternsWallet</string>
+    <string name="title_home">Inicio</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="credit">Créditos</string>
+    <string name="transfer">Transferir</string>
+    <string name="about">Sobre la aplicación</string>
+    <string name="empty_amount">+$000.000.000</string>
+    <string name="empty_name">Nombre Apellido</string>
+</resources>
