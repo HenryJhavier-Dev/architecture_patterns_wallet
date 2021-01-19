@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.transfer.TransferFragment">
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/gotham_medium"
             android:text="¿A quien vas a transferir?"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +91,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
